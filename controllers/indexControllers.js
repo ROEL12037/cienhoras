@@ -1,5 +1,5 @@
 const getIndexPage = (req, res) => {
-    res.render('index')
+    res.render('index', {title: 'cienhoras'})
 }
 
 module.exports = {
