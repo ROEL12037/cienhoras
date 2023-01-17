@@ -1,4 +1,5 @@
-require('dotenv').config( {path: './config/.env'} )
+const dotenv = require('dotenv')
+dotenv.config( {path: './config/.env'} )
 
 const express = require('express')
 const logger = require('morgan')
@@ -9,6 +10,7 @@ connectDB()
 
 const app = express()
 
+app.set('view enginge', 'ejs')
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))
 }
