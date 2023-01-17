@@ -14,11 +14,13 @@ connectDB()
 const app = express()
 
 app.set('view engine', 'ejs')
-app.use('/', indexRoutes)
-app.use('/profile', profileRoutes)
+app.use(express.static('public'))
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))
 }
+
+app.use('/', indexRoutes)
+app.use('/profile', profileRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`server running in ${process.env.NODE_ENV} mode on port: ${process.env.PORT}`)
