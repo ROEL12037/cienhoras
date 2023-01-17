@@ -10,7 +10,7 @@ connectDB()
 
 const app = express()
 
-app.set('view enginge', 'ejs')
+app.set('view engine', 'ejs')
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))
 }
