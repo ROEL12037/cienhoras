@@ -2,6 +2,7 @@ const dotenv = require('dotenv')
 dotenv.config( {path: './config/.env'} )
 
 const express = require('express')
+const passport = require('passport')
 const logger = require('morgan')
 
 const { connectDB } = require('./config/db')
@@ -10,12 +11,16 @@ const indexRoutes = require('./routes/indexRoutes')
 const profileRoutes = require('./routes/profileRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 
+require('./config/passport')(passport)
+
 connectDB()
 
 const app = express()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(passport.initialize())
+app.use(passport.session())
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))
 }
