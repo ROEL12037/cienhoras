@@ -8,6 +8,7 @@ const { connectDB } = require('./config/db')
 
 const indexRoutes = require('./routes/indexRoutes')
 const profileRoutes = require('./routes/profileRoutes')
+const loginRoutes = require('./routes/loginRoutes')
 
 connectDB()
 
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use('/', indexRoutes)
 app.use('/profile', profileRoutes)
+app.use('/login', loginRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`server running in ${process.env.NODE_ENV} mode on port: ${process.env.PORT}`)
