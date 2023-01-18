@@ -3,6 +3,7 @@ dotenv.config( {path: './config/.env'} )
 
 const express = require('express')
 const passport = require('passport')
+const session = require('express-session')
 const logger = require('morgan')
 
 const { connectDB } = require('./config/db')
@@ -19,8 +20,16 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false
+    })
+)
 app.use(passport.initialize())
 app.use(passport.session())
+
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))
 }
