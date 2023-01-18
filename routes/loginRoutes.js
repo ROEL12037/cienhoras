@@ -1,10 +1,11 @@
 const router = require('express').Router()
 const passport = require('passport')
 const { getLoginPage } = require('../controllers/loginControllers')
+const { ensureGuest } = require('../middleware/auth')
 
 // desc         login page
 // route        get /login
-router.get('/', getLoginPage)
+router.get('/', ensureGuest, getLoginPage)
 
 // desc         authenticate with google
 // route        get /login/google
