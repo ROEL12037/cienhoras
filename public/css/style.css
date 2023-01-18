@@ -6,13 +6,17 @@
     max-width: 32rem;
 }
 
-.proceed {
+.cover {
+    max-width: 32rem;
+}
+
+.login {
     background-color: rgb(208, 56, 40);
     border-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
 
-.proceed:hover {
+.login:hover {
     background-color: rgba(208, 56, 40, 0.9);
     border-color: rgba(0, 0, 0, 0.9);
     color: rgba(255, 255, 255, 0.9)
