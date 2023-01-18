@@ -8,7 +8,7 @@ router.get('/', getLoginPage)
 
 // desc         authenticate with google
 // route        get /login/google
-router.get('/google', passport.authenticate('google', {scope: ['profile']}))
+router.get('/google', passport.authenticate('google', {scope: ['profile'], prompt: "select_account"}))
 
 // desc         authenticate with google
 // route        get /login/google/callback
