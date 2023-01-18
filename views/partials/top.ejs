@@ -21,18 +21,16 @@
     <% if (title !== 'cienhoras') { %>
         <nav class="navbar sticky-top navbar-expand-sm bar">
             <div class="container-sm">
-                <span class="navbar-brand">cienhoras</span>
+                <a href="/" class="navbar-brand">cienhoras</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
-                <!-- <% if (title === 'cienhoras - login') { %>
-                        <a href="/" class="nav-link">Home</a>
-                <% } %> -->
-                <% if (title === 'cienhoras - login') { %>
-                    <a href="/" class="nav-item nav-link">Home</a>
-                <%} else { %>
-                    <a href="/" class="nav-item nav-link me-2">Home</a>
+                <% if (title === 'cienhoras - profile') { %>
+                    <a href="#" class="nav-item nav-link me-2">Feed</a>
+                    <a href="/logout" class="nav-item nav-link">Logout</a>
+                <%} else if (title === 'cienhoras - add'){ %>
+                    <a href="/profile" class="nav-item nav-link me-2">Profile</a>
                     <a href="#" class="nav-item nav-link me-2">Feed</a>
                     <a href="/logout" class="nav-item nav-link">Logout</a>
                 <% } %>
