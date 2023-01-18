@@ -1,9 +1,17 @@
-const getProfilePage = (req, res) => {
+const Post = require('../models/PostModel')
+
+const getProfilePage = async (req, res) => {
     console.log(req.user)
-    res.render('profile', {
-        title: 'cienhoras - profile',
-        name: req.user.firstName
-    })
+    try {
+        const posts = await Post.find({ user: req.user.id }).lean()
+        res.render('profile', {
+            title: 'cienhoras - profile',
+            name: req.user.firstName, 
+            posts
+        })
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 module.exports = {
