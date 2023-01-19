@@ -17,6 +17,9 @@
                     <div>cloudinaryID:  <%= post.cloudinaryID %></div>
                     <div>createdAt:  <%= post.createdAt %></div>
                     <div>updatedAt:  <%= post.updatedAt %></div>
+                    <% if (loggedIn.toString() === post.user._id.toString()) { %>
+                        <a href="/post/edit/<%= post._id %>">edit post</a>
+                    <% } %>
                 </div>
             <% }) %>
         <% } %>

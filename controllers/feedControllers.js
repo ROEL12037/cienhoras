@@ -8,7 +8,8 @@ const getFeedPage = async (req, res) => {
             .lean()
         res.render('feed', {
             title: 'cienhoras - feed',
-            allPosts: allPosts
+            allPosts: allPosts,
+            loggedIn: req.user._id.valueOf()
         })
     } catch (error) {
         console.error(error)

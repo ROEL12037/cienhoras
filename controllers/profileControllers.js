@@ -7,7 +7,8 @@ const getProfilePage = async (req, res) => {
         res.render('profile', {
             title: 'cienhoras - profile',
             name: req.user.firstName, 
-            posts
+            posts,
+            loggedIn: req.user._id.valueOf()
         })
     } catch (error) {
         console.error(error)

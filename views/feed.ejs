@@ -3,7 +3,7 @@
 <main class="container-sm mb-2">
     <h1 class="">Feed</h1>
     
-    <section id="user-posts">
+    <section id="all-posts">
         <% if (allPosts.length === 0) { %>
             <p>no posts</p>
         <%} else { %>
@@ -17,6 +17,9 @@
                     <div>cloudinaryID:  <%= post.cloudinaryID %></div>
                     <div>createdAt:  <%= post.createdAt %></div>
                     <div>updatedAt:  <%= post.updatedAt %></div>
+                    <% if (loggedIn.toString() === post.user._id.toString()) { %>
+                        <a href="/post/edit/<%= post._id %>">edit post</a>
+                    <% } %>
                 </div>
             <% }) %>
         <% } %>
