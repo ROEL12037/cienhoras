@@ -10,7 +10,7 @@ const PostSchema = new mongoose.Schema({
         required: true,
         trim: true
     }, 
-    caption: {
+    eventInfo: {
         type: String, 
         required: true
     },
