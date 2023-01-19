@@ -8,7 +8,7 @@ const { ensureAuth } = require('../middleware/auth')
 router.get('/add', ensureAuth, getAddPostPage)
 
 // desc         add post
-// route        POST /post/add
-router.post('/add', upload.single('image'), addPost)
+// route        POST /post/addPost
+router.post('/addPost', ensureAuth, upload.single('image'), addPost)
 
 module.exports = router

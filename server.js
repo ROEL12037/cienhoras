@@ -34,6 +34,8 @@ app.use(
 )
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))

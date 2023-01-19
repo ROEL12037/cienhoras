@@ -21,6 +21,7 @@ const addPost = async (req, res) => {
         res.redirect('/profile')
     } catch (error) {
         console.error(error)
+        res.render('error/500')
     }
 }
 
