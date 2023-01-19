@@ -11,6 +11,7 @@ const getProfilePage = async (req, res) => {
         })
     } catch (error) {
         console.error(error)
+        res.render('error/500')
     }
 }
 
