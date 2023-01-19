@@ -7,14 +7,14 @@
         <p>no posts</p>
     <%} else { %>
         <% posts.forEach( post => { %>
-            <p>post._id</p>
-            <p>post.user</p>
-            <p>post.event</p>
-            <p>post.caption</p>
-            <p>post.image</p>
-            <p>post.cloudinaryID</p>
-            <p>post.createdAt</p>
-            <p>post.updatedAt</p>
+            post-id: <%= post._id %>
+            user-id:  <%= post.user %>              
+            event:  <%= post.event %>              
+            event info:  <%= post.eventInfo %>              
+            image-url from cloudinary:  <%= post.image %>              
+            cloudinaryID:  <%= post.cloudinaryID %>              
+            createdAt:  <%= post.createdAt %>              
+            updatedAt:  <%= post.updatedAt %>              
         <% }) %>
     <% } %>
 </main>
