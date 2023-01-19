@@ -1,0 +1,29 @@
+<%- include('partials/top') %>
+
+<main class="container-sm position-absolute top-50 start-50 translate-middle">
+    
+    <div class="card cover mx-auto">
+        <h1 class="ms-3">edit</h1>
+        <form action="/post/addPost" method="post" enctype="multipart/form-data" class="cover m-3">
+            <!-- event image -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Event Image</label>
+                <input class="form-control form-control-sm" id="image" type="file" name="image">
+            </div>
+            <!-- event name -->
+            <div class="mb-3">
+                <label for="event" class="form-label">Event Name</label>
+                <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
+            </div>
+            <!-- event info -->
+            <div class="mb-3">
+                <label for="eventInfo" class="form-label">Event Info</label>
+                <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
+            </div>
+            <!-- submit -->
+            <button type="submit" class="btn btn-sm login" value="upload">add event</button>
+        </form>
+    </div>
+</main>
+
+<%- include('partials/bottom') %>

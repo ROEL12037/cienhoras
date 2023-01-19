@@ -1,5 +1,6 @@
 const cloudinary = require("../config/cloudinary");
-const Post = require('../models/PostModel')
+const Post = require('../models/PostModel');
+const { post } = require("../routes/postRoutes");
 
 const getAddPostPage = (req, res) => {
     res.render('add', {
@@ -25,7 +26,27 @@ const addPost = async (req, res) => {
     }
 }
 
+const getEditPostPage = async (req, res) => {
+    const postToEdit = await Post.findOne({
+        _id: req.params.id
+    }).lean()
+
+    if (!postToEdit) {
+        return res.render('error/404')
+    }
+
+    if (postToEdit.user != req.user.id) {
+        res.redirect('/feed')
+    } else {
+        res.render('edit', {
+            title: 'cienhoras - edit',
+            postToEdit
+        })
+    }
+}
+
 module.exports = {
     getAddPostPage,
-    addPost
+    addPost, 
+    getEditPostPage
 }
