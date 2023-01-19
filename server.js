@@ -15,6 +15,7 @@ const profileRoutes = require('./routes/profileRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const logoutRoutes = require('./routes/logoutRoutes')
 const postRoutes = require('./routes/postRoutes')
+const feedRoutes = require('./routes/feedRoutes')
 
 require('./config/passport')(passport)
 
@@ -46,6 +47,7 @@ app.use('/profile', profileRoutes)
 app.use('/login', loginRoutes)
 app.use('/logout', logoutRoutes)
 app.use('/post', postRoutes)
+app.use('/feed', feedRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`server running in ${process.env.NODE_ENV} mode on port: ${process.env.PORT}`)

@@ -1,16 +1,16 @@
 <%- include('partials/top') %>
 
 <main class="container-sm mb-2">
-    <h1 class=""><%= name %>'s Profile</h1>
+    <h1 class="">Feed</h1>
     
-    <section class="user-posts">
-        <% if (posts.length === 0) { %>
+    <section id="user-posts">
+        <% if (allPosts.length === 0) { %>
             <p>no posts</p>
         <%} else { %>
-            <% posts.forEach( post => { %>
+            <% allPosts.forEach( post => { %>
                 <div class="card">
                     <div>post-id: <%= post._id %></div>
-                    <div>user-id:  <%= post.user %></div>
+                    <div>user-id:  <%= post.user._id %></div>
                     <div>event:  <%= post.event %></div>
                     <div>event info:  <%= post.eventInfo %></div>
                     <div>image-url from cloudinary:  <%= post.image %></div>

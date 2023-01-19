@@ -27,11 +27,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                 <% if (title === 'cienhoras - profile') { %>
-                    <a href="#" class="nav-item nav-link me-2">Feed</a>
+                    <a href="/feed" class="nav-item nav-link me-2">Feed</a>
                     <a href="/logout" class="nav-item nav-link">Logout</a>
                 <%} else if (title === 'cienhoras - add'){ %>
                     <a href="/profile" class="nav-item nav-link me-2">Profile</a>
-                    <a href="#" class="nav-item nav-link me-2">Feed</a>
+                    <a href="/feed" class="nav-item nav-link me-2">Feed</a>
+                    <a href="/logout" class="nav-item nav-link">Logout</a>
+                <%} else if (title === 'cienhoras - feed'){ %>
+                    <a href="profile" class="nav-item nav-link me-2">Profile</a>
                     <a href="/logout" class="nav-item nav-link">Logout</a>
                 <% } %>
                 </div>
