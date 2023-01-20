@@ -6,6 +6,7 @@ const passport = require('passport')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const MongoStore = require('connect-mongo')
+const methodOverride = require('method-override')
 const logger = require('morgan')
 
 const { connectDB } = require('./config/db')
@@ -37,6 +38,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(methodOverride('_method'))
 
 if (process.env.NODE_ENV === 'development') {
     app.use(logger('dev'))

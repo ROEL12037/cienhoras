@@ -4,7 +4,16 @@
     
     <div class="card cover mx-auto">
         <h1 class="ms-3">edit</h1>
-        <form action="/post/addPost" method="post" enctype="multipart/form-data" class="cover m-3">
+        <!-- <form action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="post">
+            <label for="event" class="form-label">Event Name</label>
+            <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
+
+            <label for="eventInfo" class="form-label">Event Info</label>
+            <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
+            <button type="submit">edit</button>
+        </form> -->
+
+        <form action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="cover m-3">
             <!-- event image -->
             <div class="mb-3">
                 <label for="image" class="form-label">Event Image</label>
@@ -21,7 +30,7 @@
                 <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
             </div>
             <!-- submit -->
-            <button type="submit" class="btn btn-sm login" value="upload">add event</button>
+            <button type="submit" class="btn btn-sm login">edit event</button>
         </form>
     </div>
 </main>

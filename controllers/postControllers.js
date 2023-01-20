@@ -1,6 +1,5 @@
 const cloudinary = require("../config/cloudinary");
 const Post = require('../models/PostModel');
-const { post } = require("../routes/postRoutes");
 
 const getAddPostPage = (req, res) => {
     res.render('add', {
@@ -16,7 +15,7 @@ const addPost = async (req, res) => {
             event: req.body.event, 
             eventInfo: req.body.eventInfo,
             image: result.secure_url,
-            cloudinaryID: result.public_id,
+            cloudinaryID: result.public_id
         })
         console.log('added post')
         res.redirect('/profile')
@@ -45,8 +44,33 @@ const getEditPostPage = async (req, res) => {
     }
 }
 
+const editPost = async (req, res) => {
+    let postToUpdate = await Post.findById(req.params.id).lean()
+
+    if (!postToUpdate) {
+        res.render('error/404')
+    }
+
+    if (postToUpdate.user != req.user.id) {
+        res.redirect('/feed')
+    } else {
+        try {
+            if (!req.file) {
+                postToUpdate = await Post.findOneAndUpdate({_id: req.params.id}, {
+                    event: req.body.event,
+                    eventInfo: req.body.eventInfo
+                })
+            }
+            res.redirect('/profile')
+        } catch (error) {
+            console.error(error)
+        }
+    }
+}
+
 module.exports = {
     getAddPostPage,
     addPost, 
-    getEditPostPage
+    getEditPostPage, 
+    editPost
 }

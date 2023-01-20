@@ -1,7 +1,7 @@
 const Post = require('../models/PostModel')
 
 const getProfilePage = async (req, res) => {
-    console.log(req.user)
+    // console.log(req.user)
     try {
         const posts = await Post.find({ user: req.user.id }).lean()
         res.render('profile', {
