@@ -11,6 +11,7 @@
                 <div class="card">
                     <div>post-id: <%= post._id %></div>
                     <div>user-id:  <%= post.user._id %></div>
+                    <div>link to user: <a href="/profile/<%= post.user._id %>">see this user's profile</a></div>
                     <div>event:  <%= post.event %></div>
                     <div>event info:  <%= post.eventInfo %></div>
                     <div>image-url from cloudinary:  <%= post.image %></div>

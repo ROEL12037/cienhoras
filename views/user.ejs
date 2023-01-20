@@ -1,0 +1,21 @@
+<%- include('partials/top') %>
+
+<% if (userPosts.length === 0) { %>
+    <p>no posts</p>
+<%} else { %>
+    <% userPosts.forEach( post => { %>
+        <div class="card">
+            <div>post-id: <%= post._id %></div>
+            <div>user-id:  <%= post.user._id %></div>
+            <div>event:  <%= post.event %></div>
+            <div>event info:  <%= post.eventInfo %></div>
+            <div>image-url from cloudinary:  <%= post.image %></div>
+            <div>cloudinaryID:  <%= post.cloudinaryID %></div>
+            <div>createdAt:  <%= post.createdAt %></div>
+            <div>updatedAt:  <%= post.updatedAt %></div>
+            
+        </div>
+    <% }) %>
+<% } %>
+
+<%- include('partials/bottom') %>
