@@ -62,12 +62,13 @@ const editPost = async (req, res) => {
                     eventInfo: req.body.eventInfo
                 })
             } else {
-                const result = await cloudinary.uploader.upload(req.file.path)
+                const result = await cloudinary.uploader.upload(req.file.path, {
+                    public_id: postToUpdate.cloudinaryID,
+                    overwrite: true
+                })
                 postToUpdate = await Post.findOneAndUpdate({_id: req.params.id}, {
                     event: req.body.event,
-                    eventInfo: req.body.eventInfo,
-                    image: result.secure_url,
-                    cloudinaryID: result.public_id
+                    eventInfo: req.body.eventInfo
                 })
             }
             res.redirect('/profile')
