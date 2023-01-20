@@ -1,0 +1,12 @@
+<%- include('partials/top') %>
+
+    <div>post-id: <%= postToDisplay._id %></div>
+    <div>user-id:  <%= postToDisplay.user._id %></div>
+    <div>event:  <%= postToDisplay.event %></div>
+    <div>event info:  <%= postToDisplay.eventInfo %></div>
+    <div>image-url from cloudinary:  <%= postToDisplay.image %></div>
+    <div>cloudinaryID:  <%= postToDisplay.cloudinaryID %></div>
+    <div>createdAt:  <%= postToDisplay.createdAt %></div>
+    <div>updatedAt:  <%= postToDisplay.updatedAt %></div>
+
+<%- include('partials/bottom') %>

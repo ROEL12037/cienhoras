@@ -45,7 +45,6 @@ const getEditPostPage = async (req, res) => {
 }
 
 const editPost = async (req, res) => {
-    console.log(req)
     let postToUpdate = await Post.findById(req.params.id).lean()
 
     if (!postToUpdate) {
@@ -89,10 +88,31 @@ const deletePost = async (req, res) => {
     }
 }
 
+const getPost = async (req, res) => {
+    try {
+        let postToDisplay = await Post.findById(req.params.id)
+            .populate('user')
+            .lean()
+
+        if (!postToDisplay) {
+            return res.render('error/404')
+        }
+
+        res.render('post', {
+            title: 'cienhoras - post', 
+            postToDisplay
+        })
+
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 module.exports = {
     getAddPostPage,
     addPost, 
     getEditPostPage, 
     editPost,
-    deletePost
+    deletePost, 
+    getPost
 }

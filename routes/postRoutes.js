@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const upload = require('../middleware/multer')
-const { getAddPostPage, addPost, getEditPostPage, editPost, deletePost} = require('../controllers/postControllers')
+const { getAddPostPage, addPost, getEditPostPage, editPost, deletePost, getPost} = require('../controllers/postControllers')
 const { ensureAuth } = require('../middleware/auth')
 
-// desc         add post page
+// desc         show add post page
 // route        GET /post/add
 router.get('/add', ensureAuth, getAddPostPage)
 
@@ -11,7 +11,7 @@ router.get('/add', ensureAuth, getAddPostPage)
 // route        POST /post/addPost
 router.post('/addPost', ensureAuth, upload.single('image'), addPost)
 
-// desc         show edit page
+// desc         show edit post page
 // route        GET /post/edit/:id
 router.get('/edit/:id', ensureAuth, getEditPostPage)
 
@@ -23,5 +23,8 @@ router.put('/edit/:id', ensureAuth, upload.single('image'), editPost)
 // route        DELETE /post/delete/:id
 router.delete('/delete/:id', ensureAuth, deletePost)
 
+// desc         show specific post
+// route        GET /post/:id
+router.get('/:id', getPost)
 
 module.exports = router
