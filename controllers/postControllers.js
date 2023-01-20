@@ -78,9 +78,21 @@ const editPost = async (req, res) => {
     }
 }
 
+const deletePost = async (req, res) => {
+    try {
+        let postToDelete = await Post.findById(req.params.id).lean()
+        await cloudinary.uploader.destroy(postToDelete.cloudinaryID)
+        await Post.findOneAndDelete({_id: req.params.id})
+        res.redirect('/profile')
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 module.exports = {
     getAddPostPage,
     addPost, 
     getEditPostPage, 
-    editPost
+    editPost,
+    deletePost
 }

@@ -19,6 +19,9 @@
                     <div>updatedAt:  <%= post.updatedAt %></div>
                     <% if (loggedIn.toString() === post.user._id.toString()) { %>
                         <a href="/post/edit/<%= post._id %>">edit post</a>
+                        <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
+                            <button type="submit">delete post</button>
+                        </form>
                     <% } %>
                 </div>
             <% }) %>
