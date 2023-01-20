@@ -32,3 +32,20 @@
 .add {
     color: rgb(208, 56, 40);
 }
+
+/* updated */
+.max-width-32 {
+    max-width: 32rem;
+}
+
+.red-btn {
+    background-color: rgb(208, 56, 40);
+    border-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.red-btn:hover {
+    background-color: rgba(208, 56, 40, 0.9);
+    border-color: rgba(0, 0, 0, 0.9);
+    color: rgba(255, 255, 255, 0.9)
+}

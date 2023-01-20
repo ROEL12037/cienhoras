@@ -17,27 +17,30 @@
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-    <% if (title !== 'cienhoras') { %>
-        <nav class="navbar sticky-top navbar-expand-sm bar">
-            <div class="container-sm">
-                <a href="/" class="navbar-brand">cienhoras</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                <% if (title === 'cienhoras - profile') { %>
-                    <a href="/feed" class="nav-item nav-link me-2">Feed</a>
-                    <a href="/logout" class="nav-item nav-link">Logout</a>
-                <%} else if (title === 'cienhoras - add' || title === 'cienhoras - edit' || title === 'cienhoras - post'){ %>
-                    <a href="/profile" class="nav-item nav-link me-2">Profile</a>
-                    <a href="/feed" class="nav-item nav-link me-2">Feed</a>
-                    <a href="/logout" class="nav-item nav-link">Logout</a>
-                <%} else if (title === 'cienhoras - feed'){ %>
-                    <a href="profile" class="nav-item nav-link me-2">Profile</a>
-                    <a href="/logout" class="nav-item nav-link">Logout</a>
-                <% } %>
+<body class="vh-100 d-flex flex-column align-items-center justify-content-between">
+    <header class="container-sm">
+        <nav class="navbar sticky-top d-flex navbar-expand-sm">
+            <a href="/" class="navbar-brand">cienhoras</a>
+            <% if (title !== 'cienhoras' && title !== 'cienhoras - login') { %>
+                <div>
+                    <button class="navbar-toggler" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#navbarText" 
+                            aria-controls="navbarText" 
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <% if (title !== 'cienhoras - profile') { %>
+                            <a href="/profile" class="nav-item nav-link me-2">Profile</a>
+                        <% } %>
+                        <% if (title !== 'cienhoras - feed') { %>
+                            <a href="/feed" class="nav-item nav-link me-2">Feed</a>
+                        <% } %>
+                        <a href="/logout" class="nav-item nav-link">Logout</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    <% } %>
+            <% } %>
+    </header>

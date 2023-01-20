@@ -1,14 +1,12 @@
-    <% if (title !== 'cienhoras - add') { %>
-        <footer class="fixed-bottom text-center mb-2 bar">
-        <% if (title === 'cienhoras - profile' || title === 'cienhoras - feed' || title === 'cienhoras - edit' || title === 'cienhoras - post') { %>
-            <a href="/post/add" class="fas fa-square-plus icons add"></a>
-        <%} else if (title === 'cienhoras'){ %>
-            <a href="https://github.com/ROEL12037" target="_blank" class="fab fa-square-github icons"></a>
-            <a href="https://www.linkedin.com/in/roel12037" target="_blank" class="fab fa-linkedin icons"></a>
-            <a href="https://twitter.com/ROELv12037" target="_blank" class="fab fa-square-twitter icons"></a>
-        <% } %>
-        </footer>
+<footer class="container-sm text-center mb-2">
+    <% if (title === 'cienhoras' || title === 'cienhoras - login') { %>
+        <a href="https://github.com/ROEL12037" target="_blank" class="fab fa-square-github icons"></a>
+        <a href="https://www.linkedin.com/in/roel12037" target="_blank" class="fab fa-linkedin icons"></a>
+        <a href="https://twitter.com/ROELv12037" target="_blank" class="fab fa-square-twitter icons"></a>
+    <%} else { %>
+        <a href="/post/add" class="fas fa-square-plus icons add"></a>
     <% } %>
+</footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
