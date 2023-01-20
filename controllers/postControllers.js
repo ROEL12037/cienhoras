@@ -45,6 +45,7 @@ const getEditPostPage = async (req, res) => {
 }
 
 const editPost = async (req, res) => {
+    console.log(req)
     let postToUpdate = await Post.findById(req.params.id).lean()
 
     if (!postToUpdate) {
@@ -59,6 +60,14 @@ const editPost = async (req, res) => {
                 postToUpdate = await Post.findOneAndUpdate({_id: req.params.id}, {
                     event: req.body.event,
                     eventInfo: req.body.eventInfo
+                })
+            } else {
+                const result = await cloudinary.uploader.upload(req.file.path)
+                postToUpdate = await Post.findOneAndUpdate({_id: req.params.id}, {
+                    event: req.body.event,
+                    eventInfo: req.body.eventInfo,
+                    image: result.secure_url,
+                    cloudinaryID: result.public_id
                 })
             }
             res.redirect('/profile')
