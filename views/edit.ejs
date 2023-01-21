@@ -1,37 +1,35 @@
 <%- include('partials/top') %>
 
-<main class="container-sm position-absolute top-50 start-50 translate-middle">
-    
-    <div class="card cover mx-auto">
-        <h1 class="ms-3">edit</h1>
-        <!-- <form action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="post">
-            <label for="event" class="form-label">Event Name</label>
-            <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
+<main class="container-sm">
+    <div class="card max-width-32 mx-auto">
+        <div class="card-header text-center">Edit</div>
 
-            <label for="eventInfo" class="form-label">Event Info</label>
-            <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
-            <button type="submit">edit</button>
-        </form> -->
+        <div class="card-body">
+            <form id="editForm" action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="cover m-3">
+                <div class="mb-3">
+                    <label for="image" class="form-label">Update Image <span class="text-muted fw-light">not required</span></label>
+                    <input class="form-control form-control-sm" id="image" type="file" name="image">
+                </div>
 
-        <form action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="cover m-3">
-            <!-- event image -->
-            <div class="mb-3">
-                <label for="image" class="form-label">Event Image</label>
-                <input class="form-control form-control-sm" id="image" type="file" name="image">
-            </div>
-            <!-- event name -->
-            <div class="mb-3">
-                <label for="event" class="form-label">Event Name</label>
-                <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
-            </div>
-            <!-- event info -->
-            <div class="mb-3">
-                <label for="eventInfo" class="form-label">Event Info</label>
-                <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
-            </div>
-            <!-- submit -->
-            <button type="submit" class="btn btn-sm login">edit event</button>
-        </form>
+                <div class="mb-3">
+                    <label for="event" class="form-label">Update Name</label>
+                    <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="eventInfo" class="form-label">Update Info</label>
+                    <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
+                </div>
+
+                <!-- <button type="submit" class="btn btn-sm red-btn">edit event</button> -->
+            </form>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <button form="editForm" type="submit" class="btn btn-sm red-btn">edit event</button>
+            <a href="/profile" class="btn btn-sm btn-secondary">cancel</a>
+        </div>
+
     </div>
 </main>
 

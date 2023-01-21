@@ -31,7 +31,7 @@ const getEditPostPage = async (req, res) => {
     }).lean()
 
     if (!postToEdit) {
-        return res.render('error/404')
+        res.render('error/404')
     }
 
     if (postToEdit.user != req.user.id) {
@@ -48,7 +48,7 @@ const editPost = async (req, res) => {
     let postToUpdate = await Post.findById(req.params.id).lean()
 
     if (!postToUpdate) {
-        res.render('error/404')
+        return res.render('error/404')
     }
 
     if (postToUpdate.user != req.user.id) {
