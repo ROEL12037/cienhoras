@@ -49,3 +49,33 @@
     border-color: rgba(0, 0, 0, 0.9);
     color: rgba(255, 255, 255, 0.9)
 }
+
+header, footer {
+    background-color: rgb(255,255,255);
+}
+
+.brdr {
+    border: 1px solid blue;
+    /* border-color: blue; */
+}
+
+.post-img-dimensions {
+    height: 12.5rem;
+    width: 12.5rem;
+}
+
+.post-card {
+    max-width: 12.5rem;
+}
+
+.edit-delete {
+    color: rgb(208, 56, 40);
+}
+
+.post-img-overlay {
+    max-height: 12.5rem;
+}
+
+.black-font {
+    color: rgb(0, 0, 0);
+}

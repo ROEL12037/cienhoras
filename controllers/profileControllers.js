@@ -1,9 +1,14 @@
 const Post = require('../models/PostModel')
+const {shortenTitle} = require('../middleware/helpers')
+
 
 const getProfilePage = async (req, res) => {
     // console.log(req.user)
     try {
         const posts = await Post.find({ user: req.user.id }).lean()
+
+        await shortenTitle(posts)
+
         res.render('profile', {
             title: 'cienhoras - profile',
             name: req.user.firstName, 
