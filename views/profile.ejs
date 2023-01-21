@@ -6,69 +6,60 @@
         <h2 class="lead">My Posts</h2>
     </section>
 
-    <section class="flex-grow-1 brdr">
-        <% if (posts.length === 0) { %>
-            <section class="d-flex flex-column align-items-center h-100 justify-content-center">
-                <p>You have not added any posts yet.</p>
-                <p>Click <a href="/post/add" class="edit-delete fw-bold text-decoration-none">here</a> or the plus sign below to add a post.</p>
-                <p>See other user's posts by visiting the <a href="/feed" class="edit-delete fw-bold text-decoration-none">feed.</a></p>
-            </section>
-        <% } else { %>
-            <% posts.forEach( post => { %>
-                <div class="card mb-3 post-card">
-                    <img src="<%= post.image %>" class="card-img-top post-img-dimensions" alt="">
-
-                    <% if (loggedIn.toString() === post.user._id.toString()) { %>
-                        <div class="card-img-overlay d-flex justify-content-between post-img-overlay">
-                            <span>
-                                <a href="/post/edit/<%= post._id %>">
-                                    <span class="btn">
-                                        <i class="far fa-pen-to-square edit-delete"></i>
-                                    </span>
-                                </a>
-                            </span>
-                            
-                            <span>
-                                <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                                    <button class="btn" type="submit"><i class="fas fa-trash edit-delete" type="submit"></i></button>
-                                </form>
-                            </span>
-                        </div>
-                    <% } %>
-
-                    <a href="/post/<%= post._id %>" class="text-decoration-none">
-                        <div class="card-body text-center">
-                            <p class="card-text black-font"><%= post.event %></p>
-                        </div>
-                    </a>
-                </div>
-            <% }) %>
-        <% } %>
-    </section>
-
-    <!-- <% if (posts.length === 0) { %>
-        <p>You have not added any posts yet.</p>
-        <p>Click here or the plus sign below to add a post.</p>
+    <section class="flex-grow-1">
+    <% if (posts.length === 0) { %>
+        <section class="d-flex flex-column align-items-center h-100 justify-content-center">
+            <p>You have not added any posts yet.</p>
+            <p>Click <a href="/post/add" class="edit-delete fw-bold text-decoration-none">here</a> or the plus sign below to add a post.</p>
+            <p>See other user's posts by visiting the <a href="/feed" class="edit-delete fw-bold text-decoration-none">feed.</a></p>
+        </section>
     <% } else { %>
+        <section class="d-flex flex-wrap justify-content-center">
         <% posts.forEach( post => { %>
-            <div class="card">
-                <div>post-id: <%= post._id %></div>
-                <div>user-id:  <%= post.user %></div>
-                <div>event:  <%= post.event %></div>
-                <div>event info:  <%= post.eventInfo %></div>
-                <div>image-url from cloudinary:  <%= post.image %></div>
-                <div>cloudinaryID:  <%= post.cloudinaryID %></div>
-                <div>createdAt:  <%= post.createdAt %></div>
-                <div>updatedAt:  <%= post.updatedAt %></div>
-                <% if (loggedIn.toString() === post.user._id.toString()) { %>
-                    <a href="/post/edit/<%= post._id %>">edit post</a>
-                    <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                        <button type="submit">delete post</button>
-                    </form>
-                <% } %>
+            <div class="card m-2 post-card">
+                <img src="<%= post.image %>" class="card-img-top post-img-dimensions" alt="">
+
+            <% if (loggedIn.toString() === post.user._id.toString()) { %>
+                <div class="card-img-overlay d-flex justify-content-between post-img-overlay">
+                    <span>
+                        <a href="/post/edit/<%= post._id %>">
+                            <span class="btn">
+                                <i class="far fa-pen-to-square edit-delete"></i>
+                            </span>
+                        </a>
+                    </span>
+                    
+                    <span>
+                        <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
+                            <button class="btn" type="submit"><i class="fas fa-trash edit-delete" type="submit"></i></button>
+                        </form>
+                    </span>
+                </div>
+            <% } %>
+
+                <a href="/post/<%= post._id %>" class="text-decoration-none">
+                    <div class="card-body text-center">
+                        <p class="card-text black-font"><%= post.event %></p>
+                    </div>
+                </a>
             </div>
         <% }) %>
-    <% } %> -->
+        </section>
+    <% } %>
+    </section>
 </main>
+
+
+<% /* %>
+    post-id: <%= post._id %>
+    user-id:  <%= post.user %>
+    event:  <%= post.event %>
+    event info:  <%= post.eventInfo %>
+    image-url from cloudinary:  <%= post.image %>
+    cloudinaryID:  <%= post.cloudinaryID %>
+    createdAt:  <%= post.createdAt %>
+    updatedAt:  <%= post.updatedAt %>
+<% */ %>
+
 
 <%- include('partials/bottom') %>
