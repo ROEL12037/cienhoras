@@ -2,7 +2,7 @@
 
 <main class="container-sm">
     <div class="card max-width-32 mx-auto">
-        <div class="card-header text-center">Edit</div>
+        <div class="card-header text-center">Edit Event</div>
 
         <div class="card-body">
             <form id="editForm" action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="cover m-3">
@@ -12,20 +12,20 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="event" class="form-label">Update Name</label>
+                    <label for="event" class="form-label">Update Name <span class="text-muted fw-light">cannot be blank</span></label>
                     <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
                 </div>
                 
                 <div class="mb-3">
-                    <label for="eventInfo" class="form-label">Update Info</label>
+                    <label for="eventInfo" class="form-label">Update Info <span class="text-muted fw-light">cannot be blank</span></label>
                     <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
                 </div>
             </form>
         </div>
 
         <div class="card-footer d-flex justify-content-between">
-            <button form="editForm" type="submit" class="btn btn-sm red-btn">edit event</button>
-            <a href="/profile" class="btn btn-sm btn-secondary">cancel</a>
+            <button form="editForm" type="submit" class="btn btn-sm red-btn">Edit event</button>
+            <a href="/profile" class="btn btn-sm btn-secondary">Cancel</a>
         </div>
 
     </div>
