@@ -79,3 +79,15 @@ header, footer {
 .black-font {
     color: rgb(0, 0, 0);
 }
+
+.red-color {
+    color: rgb(208, 56, 40);
+}
+
+.blue-color {
+    color: rgb(30, 107, 193)
+}
+
+.height-max {
+    max-height: 48rem;
+}

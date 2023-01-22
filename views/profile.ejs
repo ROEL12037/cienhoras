@@ -10,8 +10,8 @@
     <% if (posts.length === 0) { %>
         <section class="d-flex flex-column align-items-center h-100 justify-content-center">
             <p>You have not added any posts yet.</p>
-            <p>Click <a href="/post/add" class="edit-delete fw-bold text-decoration-none">here</a> or the plus sign below to add a post.</p>
-            <p>See other user's posts by visiting the <a href="/feed" class="edit-delete fw-bold text-decoration-none">feed.</a></p>
+            <p>Click <a href="/post/add" class="red-color fw-bold text-decoration-none">here</a> or the plus sign below to add a post.</p>
+            <p>See other user's posts by visiting the <a href="/feed" class="red-color fw-bold text-decoration-none">feed.</a></p>
         </section>
     <% } else { %>
         <section class="d-flex flex-wrap justify-content-center">
@@ -24,14 +24,14 @@
                     <span>
                         <a href="/post/edit/<%= post._id %>">
                             <span class="btn">
-                                <i class="far fa-pen-to-square edit-delete"></i>
+                                <i class="far fa-pen-to-square red-color"></i>
                             </span>
                         </a>
                     </span>
                     
                     <span>
                         <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                            <button class="btn" type="submit"><i class="fas fa-trash edit-delete" type="submit"></i></button>
+                            <button class="btn" type="submit"><i class="fas fa-trash red-color" type="submit"></i></button>
                         </form>
                     </span>
                 </div>

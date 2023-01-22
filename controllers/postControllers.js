@@ -100,7 +100,8 @@ const getPost = async (req, res) => {
 
         res.render('post', {
             title: 'cienhoras - post', 
-            postToDisplay
+            postToDisplay,
+            loggedIn: req.user._id.valueOf()
         })
 
     } catch (error) {

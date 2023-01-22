@@ -1,12 +1,51 @@
 <%- include('partials/top') %>
 
-    <div>post-id: <%= postToDisplay._id %></div>
-    <div>user-id:  <%= postToDisplay.user._id %></div>
-    <div>event:  <%= postToDisplay.event %></div>
-    <div>event info:  <%= postToDisplay.eventInfo %></div>
-    <div>image-url from cloudinary:  <%= postToDisplay.image %></div>
-    <div>cloudinaryID:  <%= postToDisplay.cloudinaryID %></div>
-    <div>createdAt:  <%= postToDisplay.createdAt %></div>
-    <div>updatedAt:  <%= postToDisplay.updatedAt %></div>
+<main class="container-sm flex-grow-1 d-flex flex-column align-items-center">
+    <div class="card max-width-32 max-height-48">
+        <div class="card-header text-center">
+            <h2 class="display-6"><%= postToDisplay.event %></h2>
+        </div>
+
+        <div class="card-body">
+            <img src="<%= postToDisplay.image %>" alt="" class="card-img mb-1">
+            <p class="card-text lead">
+                <%= postToDisplay.eventInfo %>
+            </p>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between align-items-center">
+            <div>
+                Created by: <a href="<%= loggedIn.toString() === postToDisplay.user._id.toString() ? '/profile' : `/profile/${postToDisplay.user._id}` %>" class="blue-color text-decoration-none"><%= postToDisplay.user.displayName %></a>
+            </div>
+            <% if (loggedIn.toString() === postToDisplay.user._id.toString()) { %>
+                <div class="d-flex flex-row">
+                    <span>
+                        <a href="/post/edit/<%= postToDisplay._id %>">
+                            <span class="btn">
+                                <i class="far fa-pen-to-square red-color"></i>
+                            </span>
+                        </a>
+                    </span>
+                    <span>
+                        <form action="/post/delete/<%= postToDisplay._id %>?_method=DELETE" method="post">
+                            <button class="btn" type="submit"><i class="fas fa-trash red-color" type="submit"></i></button>
+                        </form>
+                    </span>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</main>
+
+<% /* %>
+    post-id: <%= postToDisplay._id %>
+    user-id:  <%= postToDisplay.user._id %>
+    event:  <%= postToDisplay.event %>
+    event info:  <%= postToDisplay.eventInfo %>
+    image-url from cloudinary:  <%= postToDisplay.image %>
+    cloudinaryID:  <%= postToDisplay.cloudinaryID %>
+    createdAt:  <%= postToDisplay.createdAt %>
+    updatedAt:  <%= postToDisplay.updatedAt %>
+<% */ %>
 
 <%- include('partials/bottom') %>
