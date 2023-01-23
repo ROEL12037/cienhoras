@@ -5,7 +5,7 @@
         <div class="card-header text-center">Edit Event</div>
 
         <div class="card-body">
-            <form id="editForm" action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="cover m-3">
+            <form id="editForm" action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="max-width-32 m-3">
                 <div class="mb-3">
                     <label for="image" class="form-label">Update Image <span class="text-muted fw-light">not required</span></label>
                     <input class="form-control form-control-sm" id="image" type="file" name="image">
