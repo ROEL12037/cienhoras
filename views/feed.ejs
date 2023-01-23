@@ -1,33 +1,46 @@
 <%- include('partials/top') %>
 
-<main class="container-sm mb-2">
-    <h1 class="">Feed</h1>
-    
-    <section id="all-posts">
-        <% if (allPosts.length === 0) { %>
-            <p>no posts</p>
-        <%} else { %>
-            <% allPosts.forEach( post => { %>
-                <div class="card">
-                    <div>post-id: <%= post._id %></div>
-                    <div>user-id:  <%= post.user._id %></div>
-                    <div>link to user: <a href="/profile/<%= post.user._id %>">see this user's profile</a></div>
-                    <div>event:  <%= post.event %></div>
-                    <div>event info:  <%= post.eventInfo %></div>
-                    <div>image-url from cloudinary:  <%= post.image %></div>
-                    <div>cloudinaryID:  <%= post.cloudinaryID %></div>
-                    <div>createdAt:  <%= post.createdAt %></div>
-                    <div>updatedAt:  <%= post.updatedAt %></div>
+<main class="container-sm flex-grow-1 d-flex flex-column align-items-center">
+    <% if (allPosts.length === 0) { %>
+        <p>no posts</p>
+    <%} else { %>
+        <% allPosts.forEach( post => { %>
+            <div class="card mb-4 max-width-32">
+                <div class="card-header text-center">
+                    <h2 class="display-6"><%= post.event %></h2>
+                </div>
+
+                <div class="card-body">
+                    <img src="<%= post.image %>" alt="" class="card-img mb-1">
+                    <p class="card-text lead">
+                        <%= post.eventInfo %>
+                    </p>
+                </div>
+
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div>
+                        Created by: <a href="<%= loggedIn.toString() === post.user._id.toString() ? '/profile' : `/profile/${post.user._id}` %>" class="blue-color text-decoration-none"><%= post.user.displayName %></a>
+                    </div>
                     <% if (loggedIn.toString() === post.user._id.toString()) { %>
-                        <a href="/post/edit/<%= post._id %>">edit post</a>
-                        <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                            <button type="submit">delete post</button>
-                        </form>
+                        <div class="d-flex flex-row">
+                            <span>
+                                <a href="/post/edit/<%= post._id %>">
+                                    <span class="btn">
+                                        <i class="far fa-pen-to-square red-color"></i>
+                                    </span>
+                                </a>
+                            </span>
+                            <span>
+                                <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
+                                    <button class="btn" type="submit"><i class="fas fa-trash red-color" type="submit"></i></button>
+                                </form>
+                            </span>
+                        </div>
                     <% } %>
                 </div>
-            <% }) %>
-        <% } %>
-    </section>
+            </div>
+        <% }) %>
+    <% } %>
 </main>
 
 <%- include('partials/bottom') %>

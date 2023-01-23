@@ -57,3 +57,7 @@ header, footer {
     text-decoration: none;
     margin: 0 0.5rem;
 }
+
+.blue-border {
+    border: 1px solid blue;
+}
