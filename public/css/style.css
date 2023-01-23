@@ -91,3 +91,7 @@ header, footer {
 .height-max {
     max-height: 48rem;
 }
+
+.test {
+    max-height: 32rem;
+}

@@ -17,7 +17,6 @@ const addPost = async (req, res) => {
             image: result.secure_url,
             cloudinaryID: result.public_id
         })
-        console.log('added post')
         res.redirect('/profile')
     } catch (error) {
         console.error(error)

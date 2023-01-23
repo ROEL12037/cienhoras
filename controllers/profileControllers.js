@@ -1,9 +1,9 @@
 const Post = require('../models/PostModel')
+const User = require('../models/UserModel')
 const {shortenTitle} = require('../middleware/helpers')
 
 
 const getProfilePage = async (req, res) => {
-    // console.log(req.user)
     try {
         const posts = await Post.find({ user: req.user.id }).lean()
 
@@ -23,13 +23,20 @@ const getProfilePage = async (req, res) => {
 
 const getUserPage = async (req, res) => {
     try {
+        let userInfo = await User.find({_id: req.params.id}).lean()
+
         let userPosts = await Post.find({user: req.params.id})
             .populate('user')
             .lean()
+
+        await shortenTitle(userPosts)
+
         res.render('user', {
             title: 'cienhoras - user', 
-            userPosts
+            userInfo,
+            userPosts,
         })
+        
     } catch (error) {
         console.error(error)
     }
