@@ -9,11 +9,19 @@
 		the adrenaline rush of sports, to the quiet charm of movie nights — preserve
 		every moment in your personal vault.
 	</p>
+	<% if (isAuthenticated) { %>
+	<a
+		href="/profile"
+		class="btn red-btn"
+		><span class="lead">Go to your posts</span></a
+	>
+	<% } else {%>
 	<a
 		href="/login"
 		class="btn red-btn">
 		<span class="lead">Proceed to log-in</span>
 	</a>
+	<%}%>
 </main>
 
 <%- include('partials/bottom') %>

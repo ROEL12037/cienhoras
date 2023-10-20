@@ -1,5 +1,9 @@
 const getIndexPage = (req, res) => {
-	res.render("index", { title: "EventVault" });
+	const isAuthenticated = req.isAuthenticated();
+	res.render("index", {
+		title: "EventVault",
+		isAuthenticated: isAuthenticated,
+	});
 };
 
 module.exports = {
