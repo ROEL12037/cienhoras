@@ -1,34 +1,78 @@
 <%- include('partials/top') %>
 
 <main class="container-sm">
-    <div class="card max-width-32 mx-auto">
-        <div class="card-header text-center">Edit Event</div>
+	<h2 class="text-center">Moments Reimagined</h2>
+	<div class="card max-width-32 mx-auto">
+		<div class="card-header text-center">Edit Event</div>
 
-        <div class="card-body">
-            <form id="editForm" action="/post/edit/<%= postToEdit._id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="max-width-32 m-3">
-                <div class="mb-3">
-                    <label for="image" class="form-label">Update Image <span class="text-muted fw-light">not required</span></label>
-                    <input class="form-control form-control-sm" id="image" type="file" name="image">
-                </div>
+		<div class="card-body">
+			<form
+				id="editForm"
+				action="/post/edit/<%= postToEdit._id %>?_method=PUT"
+				method="POST"
+				enctype="multipart/form-data"
+				class="max-width-32 m-3">
+				<div class="mb-3">
+					<label
+						for="image"
+						class="form-label"
+						>Update Image
+						<span class="text-muted fw-light">not required</span></label
+					>
+					<input
+						class="form-control form-control-sm"
+						id="image"
+						type="file"
+						name="image" />
+				</div>
 
-                <div class="mb-3">
-                    <label for="event" class="form-label">Update Name <span class="text-muted fw-light">cannot be blank</span></label>
-                    <input type="text" class="form-control form-control-sm" id="event" name="event" value="<%= postToEdit.event %>">
-                </div>
-                
-                <div class="mb-3">
-                    <label for="eventInfo" class="form-label">Update Info <span class="text-muted fw-light">cannot be blank</span></label>
-                    <textarea class="form-control" id="eventInfo" rows="2" name="eventInfo"><%= postToEdit.eventInfo %></textarea>
-                </div>
-            </form>
-        </div>
+				<div class="mb-3">
+					<label
+						for="event"
+						class="form-label"
+						>Update Name
+						<span class="text-muted fw-light">cannot be blank</span></label
+					>
+					<input
+						type="text"
+						class="form-control form-control-sm"
+						id="event"
+						name="event"
+						value="<%= postToEdit.event %>" />
+				</div>
 
-        <div class="card-footer d-flex justify-content-between">
-            <button form="editForm" type="submit" class="btn btn-sm red-btn">Edit event</button>
-            <a href="/profile" class="btn btn-sm btn-secondary">Cancel</a>
-        </div>
+				<div class="mb-3">
+					<label
+						for="eventInfo"
+						class="form-label"
+						>Update Info
+						<span class="text-muted fw-light">cannot be blank</span></label
+					>
+					<textarea
+						class="form-control"
+						id="eventInfo"
+						rows="2"
+						name="eventInfo">
+<%= postToEdit.eventInfo %></textarea
+					>
+				</div>
+			</form>
+		</div>
 
-    </div>
+		<div class="card-footer d-flex justify-content-between">
+			<button
+				form="editForm"
+				type="submit"
+				class="btn btn-sm red-btn">
+				Edit event
+			</button>
+			<a
+				href="/profile"
+				class="btn btn-sm btn-secondary"
+				>Cancel</a
+			>
+		</div>
+	</div>
 </main>
 
 <%- include('partials/bottom') %>

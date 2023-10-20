@@ -1,65 +1,86 @@
 <%- include('partials/top') %>
 
 <main class="container-sm flex-grow-1 d-flex flex-column justify-content-start">
-    <section class="">
-        <h1>My profile</h1>
-        <h2 class="lead">My Posts</h2>
-    </section>
+	<section class="">
+		<h1>My Posts</h1>
+		<h2 class="lead">Moments that matter, all in one place.</h2>
+	</section>
 
-    <section class="flex-grow-1">
-    <% if (posts.length === 0) { %>
-        <section class="d-flex flex-column align-items-center h-100 justify-content-center">
-            <p>You have not added any posts yet.</p>
-            <p>Click <a href="/post/add" class="red-color fw-bold text-decoration-none">here</a> or the plus sign below to add a post.</p>
-            <p>See other user's posts by visiting the <a href="/feed" class="red-color fw-bold text-decoration-none">feed.</a></p>
-        </section>
-    <% } else { %>
-        <section class="d-flex flex-wrap justify-content-center">
-        <% posts.forEach( post => { %>
-            <div class="card m-2 post-card">
-                <img src="<%= post.image %>" class="card-img-top post-img-dimensions" alt="">
+	<section class="flex-grow-1">
+		<% if (posts.length === 0) { %>
+		<section
+			class="d-flex flex-column align-items-center h-100 justify-content-center">
+			<p>You have not added any posts yet.</p>
+			<p>
+				Click
+				<a
+					href="/post/add"
+					class="red-color fw-bold text-decoration-none"
+					>here</a
+				>
+				or the plus sign below to add a post.
+			</p>
+			<p>
+				See other user's posts by visiting the
+				<a
+					href="/feed"
+					class="red-color fw-bold text-decoration-none"
+					>feed.</a
+				>
+			</p>
+		</section>
+		<% } else { %>
+		<section class="d-flex flex-wrap justify-content-center">
+			<% posts.forEach( post => { %>
+			<div class="card m-2 post-card">
+				<img
+					src="<%= post.image %>"
+					class="card-img-top post-img-dimensions"
+					alt="" />
 
-            <% if (loggedIn.toString() === post.user._id.toString()) { %>
-                <div class="card-img-overlay d-flex justify-content-between post-img-overlay">
-                    <span>
-                        <a href="/post/edit/<%= post._id %>">
-                            <span class="btn">
-                                <i class="far fa-pen-to-square red-color"></i>
-                            </span>
-                        </a>
-                    </span>
-                    
-                    <span>
-                        <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                            <button class="btn" type="submit"><i class="fas fa-trash red-color" type="submit"></i></button>
-                        </form>
-                    </span>
-                </div>
-            <% } %>
+				<% if (loggedIn.toString() === post.user._id.toString()) { %>
+				<div
+					class="card-img-overlay d-flex justify-content-between post-img-overlay">
+					<span>
+						<a href="/post/edit/<%= post._id %>">
+							<span class="btn">
+								<i class="far fa-pen-to-square red-color"></i>
+							</span>
+						</a>
+					</span>
 
-                <a href="/post/<%= post._id %>" class="text-decoration-none">
-                    <div class="card-body text-center">
-                        <p class="card-text black-font"><%= post.event %></p>
-                    </div>
-                </a>
-            </div>
-        <% }) %>
-        </section>
-    <% } %>
-    </section>
+					<span>
+						<form
+							action="/post/delete/<%= post._id %>?_method=DELETE"
+							method="post">
+							<button
+								class="btn"
+								type="submit">
+								<i
+									class="fas fa-trash red-color"
+									type="submit"></i>
+							</button>
+						</form>
+					</span>
+				</div>
+				<% } %>
+
+				<a
+					href="/post/<%= post._id %>"
+					class="text-decoration-none">
+					<div class="card-body text-center">
+						<p class="card-text black-font"><%= post.event %></p>
+					</div>
+				</a>
+			</div>
+			<% }) %>
+		</section>
+		<% } %>
+	</section>
 </main>
 
-
-<% /* %>
-    post-id: <%= post._id %>
-    user-id:  <%= post.user %>
-    event:  <%= post.event %>
-    event info:  <%= post.eventInfo %>
-    image-url from cloudinary:  <%= post.image %>
-    cloudinaryID:  <%= post.cloudinaryID %>
-    createdAt:  <%= post.createdAt %>
-    updatedAt:  <%= post.updatedAt %>
-<% */ %>
-
-
-<%- include('partials/bottom') %>
+<% /* %> post-id: <%= post._id %> user-id: <%= post.user %> event: <%=
+post.event %> event info: <%= post.eventInfo %> image-url from cloudinary: <%=
+post.image %> cloudinaryID: <%= post.cloudinaryID %> createdAt: <%=
+post.createdAt %> updatedAt: <%= post.updatedAt %> <% */ %> <%-
+include('partials/bottom') %>

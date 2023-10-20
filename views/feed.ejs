@@ -1,46 +1,64 @@
 <%- include('partials/top') %>
 
 <main class="container-sm flex-grow-1 d-flex flex-column align-items-center">
-    <% if (allPosts.length === 0) { %>
-        <p>no posts</p>
-    <%} else { %>
-        <% allPosts.forEach( post => { %>
-            <div class="card mb-4 max-width-32">
-                <div class="card-header text-center">
-                    <h2 class="display-6"><%= post.event %></h2>
-                </div>
+	<section class="w-100">
+		<h1>Explore the Vault</h1>
+		<h2 class="lead">A world of moments, shared by all.</h2>
+	</section>
 
-                <div class="card-body">
-                    <img src="<%= post.image %>" alt="" class="card-img mb-1">
-                    <p class="card-text lead">
-                        <%= post.eventInfo %>
-                    </p>
-                </div>
-
-                <div class="card-footer d-flex justify-content-between align-items-center">
-                    <div>
-                        Created by: <a href="<%= loggedIn.toString() === post.user._id.toString() ? '/profile' : `/profile/${post.user._id}` %>" class="blue-color text-decoration-none"><%= post.user.displayName %></a>
-                    </div>
-                    <% if (loggedIn.toString() === post.user._id.toString()) { %>
-                        <div class="d-flex flex-row">
-                            <span>
-                                <a href="/post/edit/<%= post._id %>">
-                                    <span class="btn">
-                                        <i class="far fa-pen-to-square red-color"></i>
-                                    </span>
-                                </a>
-                            </span>
-                            <span>
-                                <form action="/post/delete/<%= post._id %>?_method=DELETE" method="post">
-                                    <button class="btn" type="submit"><i class="fas fa-trash red-color" type="submit"></i></button>
-                                </form>
-                            </span>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-        <% }) %>
-    <% } %>
+	<section>
+		<% if (allPosts.length === 0) { %>
+		<p>no posts</p>
+		<%} else { %> <% allPosts.forEach( post => { %>
+		<div class="card mb-4 max-width-32">
+			<div class="card-header text-center">
+				<h2 class="display-6"><%= post.event %></h2>
+			</div>
+			<div class="card-body">
+				<img
+					src="<%= post.image %>"
+					alt=""
+					class="card-img mb-1" />
+				<p class="card-text lead"><%= post.eventInfo %></p>
+			</div>
+			<div
+				class="card-footer d-flex justify-content-between align-items-center">
+				<div>
+					Created by:
+					<a
+						href="<%= loggedIn.toString() === post.user._id.toString() ? '/profile' : `/profile/${post.user._id}` %>"
+						class="blue-color text-decoration-none"
+						><%= post.user.displayName %></a
+					>
+				</div>
+				<% if (loggedIn.toString() === post.user._id.toString()) { %>
+				<div class="d-flex flex-row">
+					<span>
+						<a href="/post/edit/<%= post._id %>">
+							<span class="btn">
+								<i class="far fa-pen-to-square red-color"></i>
+							</span>
+						</a>
+					</span>
+					<span>
+						<form
+							action="/post/delete/<%= post._id %>?_method=DELETE"
+							method="post">
+							<button
+								class="btn"
+								type="submit">
+								<i
+									class="fas fa-trash red-color"
+									type="submit"></i>
+							</button>
+						</form>
+					</span>
+				</div>
+				<% } %>
+			</div>
+		</div>
+		<% }) %> <% } %>
+	</section>
 </main>
 
 <%- include('partials/bottom') %>
