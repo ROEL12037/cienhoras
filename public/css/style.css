@@ -1,63 +1,69 @@
 .max-width-32 {
-    max-width: 32rem;
+	max-width: 32rem;
+}
+
+.max-img {
+	max-width: 480px;
+	max-height: 320px;
 }
 
 .red-btn {
-    background-color: rgb(208, 56, 40);
-    border-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+	background-color: rgb(208, 56, 40);
+	border-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 }
 
 .red-btn:hover {
-    background-color: rgba(208, 56, 40, 0.9);
-    border-color: rgba(0, 0, 0, 0.9);
-    color: rgba(255, 255, 255, 0.9)
+	background-color: rgba(208, 56, 40, 0.9);
+	border-color: rgba(0, 0, 0, 0.9);
+	color: rgba(255, 255, 255, 0.9);
 }
 
-header, footer {
-    background-color: rgb(255,255,255);
+header,
+footer {
+	background-color: rgb(255, 255, 255);
 }
 
 .post-img-dimensions {
-    height: 12.5rem;
-    width: 12.5rem;
+	height: 12.5rem;
+	width: 12.5rem;
 }
 
 .post-card {
-    max-width: 12.5rem;
+	max-width: 12.5rem;
 }
 
 .edit-delete {
-    color: rgb(208, 56, 40);
+	color: rgb(208, 56, 40);
 }
 
 .post-img-overlay {
-    max-height: 12.5rem;
+	max-height: 12.5rem;
 }
 
 .black-font {
-    color: rgb(0, 0, 0);
+	color: rgb(0, 0, 0);
 }
 
 .red-color {
-    color: rgb(208, 56, 40) !important;
+	color: rgb(208, 56, 40) !important;
 }
 
 .blue-color {
-    color: rgb(30, 107, 193)
+	color: rgb(30, 107, 193);
 }
 
 .height-max {
-    max-height: 48rem;
+	max-height: 48rem;
 }
 
 .icons {
-    font-size: 2.5rem;
-    color: black;
-    text-decoration: none;
-    margin: 0 0.5rem;
+	font-size: 2.5rem;
+	color: black;
+	text-decoration: none;
+	margin: 0 0.5rem;
 }
 
 .blue-border {
-    border: 1px solid blue;
+	border: 1px solid blue;
 }

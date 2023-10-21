@@ -14,13 +14,15 @@
 			<div class="card-header text-center">
 				<h2 class="display-6"><%= post.event %></h2>
 			</div>
+
 			<div class="card-body">
 				<img
 					src="<%= post.image %>"
 					alt=""
-					class="card-img mb-1" />
+					class="card-img mb-1 max-img object-fit-scale" />
 				<p class="card-text lead"><%= post.eventInfo %></p>
 			</div>
+
 			<div
 				class="card-footer d-flex justify-content-between align-items-center">
 				<div>
