@@ -1,45 +1,50 @@
 <%- include('partials/top') %>
 
 <main class="container-sm flex-grow-1 d-flex flex-column justify-content-start">
-    <section class="">
-        <h1><%= userInfo[0].displayName%>'s Profile</h1>
-        <h2 class="lead"><%= userInfo[0].displayName%>'s Posts</h2>
-    </section>
+	<section class="">
+		<h1><%= userInfo[0].displayName%>'s Posts</h1>
+		<h2 class="lead">The world through their eyes.</h2>
+	</section>
 
-    <section class="flex-grow-1">
-    <% if (userPosts.length === 0) { %>
-        <section class="d-flex flex-column align-items-center h-100 justify-content-center">
-            <p><%= userInfo[0].displayName %> has not added any posts yet.</p>
-            <p>See other user's posts by visiting the <a href="/feed" class="red-color fw-bold text-decoration-none">feed.</a></p>
-        </section>
-    <% } else { %>
-        <section class="d-flex flex-wrap justify-content-center">
-        <% userPosts.forEach( post => { %>
-            <div class="card m-2 post-card">
-                <img src="<%= post.image %>" class="card-img-top post-img-dimensions" alt="">
+	<section class="flex-grow-1">
+		<% if (userPosts.length === 0) { %>
+		<section
+			class="d-flex flex-column align-items-center h-100 justify-content-center">
+			<p><%= userInfo[0].displayName %> has not added any posts yet.</p>
+			<p>
+				See other user's posts by visiting the
+				<a
+					href="/feed"
+					class="red-color fw-bold text-decoration-none"
+					>feed.</a
+				>
+			</p>
+		</section>
+		<% } else { %>
+		<section class="d-flex flex-wrap justify-content-center">
+			<% userPosts.forEach( post => { %>
+			<div class="card m-2 post-card">
+				<img
+					src="<%= post.image %>"
+					class="card-img-top post-img-dimensions"
+					alt="" />
 
-                <a href="/post/<%= post._id %>" class="text-decoration-none">
-                    <div class="card-body text-center">
-                        <p class="card-text black-font"><%= post.event %></p>
-                    </div>
-                </a>
-            </div>
-        <% }) %>
-        </section>
-    <% } %>
-    </section>
+				<a
+					href="/post/<%= post._id %>"
+					class="text-decoration-none">
+					<div class="card-body text-center">
+						<p class="card-text black-font"><%= post.event %></p>
+					</div>
+				</a>
+			</div>
+			<% }) %>
+		</section>
+		<% } %>
+	</section>
 </main>
 
-<% /* %>
-    post-id: <%= post._id %>
-    user-id:  <%= post.user._id %>
-    event:  <%= post.event %>
-    event info:  <%= post.eventInfo %>
-    image-url from cloudinary:  <%= post.image %>
-    cloudinaryID:  <%= post.cloudinaryID %>
-    createdAt:  <%= post.createdAt %>
-    updatedAt:  <%= post.updatedAt %>
-<% */ %>
-
-
-<%- include('partials/bottom') %>
+<% /* %> post-id: <%= post._id %> user-id: <%= post.user._id %> event: <%=
+post.event %> event info: <%= post.eventInfo %> image-url from cloudinary: <%=
+post.image %> cloudinaryID: <%= post.cloudinaryID %> createdAt: <%=
+post.createdAt %> updatedAt: <%= post.updatedAt %> <% */ %> <%-
+include('partials/bottom') %>
